@@ -1,0 +1,14 @@
+{
+  "name": "markdownup",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "npm run build -w packages/cli -w packages/vscode",
+    "test": "node --experimental-strip-types --test packages/core/test/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.0"
+  }
+}

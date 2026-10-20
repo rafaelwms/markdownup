@@ -1,0 +1,99 @@
+{
+  "name": "markdownup-vscode",
+  "displayName": "MarkdownUp",
+  "description": "Convert between Markdown and Jira Wiki Markup from the right-click menu.",
+  "version": "0.1.2",
+  "publisher": "rafaelwms",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Formatters",
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --platform=node --external:vscode --outfile=dist/extension.js",
+    "package": "npm run build && vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "jira",
+        "aliases": [
+          "Jira Markup"
+        ],
+        "extensions": [
+          ".jira",
+          ".jiramarkup"
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "markdownup.convertFile",
+        "title": "MarkdownUp: Convert File"
+      },
+      {
+        "command": "markdownup.newFile",
+        "title": "MarkdownUp: Generate New File"
+      },
+      {
+        "command": "markdownup.convertEditor",
+        "title": "MarkdownUp: Convert Selection / Document"
+      },
+      {
+        "command": "markdownup.newEditorFile",
+        "title": "MarkdownUp: Generate New File from Document"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "markdownup.convertFile",
+          "when": "resourceExtname =~ /^\\.(md|markdown|jira|jiramarkup)$/",
+          "group": "markdownup@1"
+        },
+        {
+          "command": "markdownup.newFile",
+          "when": "resourceExtname =~ /^\\.(md|markdown|jira|jiramarkup)$/",
+          "group": "markdownup@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "markdownup.convertEditor",
+          "when": "resourceExtname =~ /^\\.(md|markdown|jira|jiramarkup)$/ || editorLangId == markdown || editorLangId == jira",
+          "group": "markdownup@1"
+        },
+        {
+          "command": "markdownup.newEditorFile",
+          "when": "resourceExtname =~ /^\\.(md|markdown|jira|jiramarkup)$/ || editorLangId == markdown || editorLangId == jira",
+          "group": "markdownup@2"
+        }
+      ]
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "markdown",
+    "jira",
+    "wiki markup",
+    "converter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rafaelwms/markdownup.git",
+    "directory": "packages/vscode"
+  },
+  "homepage": "https://github.com/rafaelwms/markdownup#readme",
+  "bugs": {
+    "url": "https://github.com/rafaelwms/markdownup/issues"
+  },
+  "icon": "images/icon.png"
+}

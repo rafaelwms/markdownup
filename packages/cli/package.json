@@ -1,0 +1,8 @@
+{
+  "name": "@markdownup/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": { "markdownup": "dist/cli.js" },
+  "scripts": { "build": "esbuild src/cli.ts --bundle --platform=node --format=esm --outfile=dist/cli.js --banner:js=\"#!/usr/bin/env node\"" },
+  "dependencies": { "@markdownup/core": "*" }
+}

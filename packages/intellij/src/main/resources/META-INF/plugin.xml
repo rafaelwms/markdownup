@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>com.rafaelwms.markdownup</id>
+    <name>MarkdownUp</name>
+    <vendor url="https://rafaelwms.com">Rafael WMS</vendor>
+    <description><![CDATA[
+        <p>Convert between <b>Markdown</b> and <b>Jira Wiki Markup</b> straight from the right-click menu.</p>
+        <ul>
+            <li><b>Convert File</b> &mdash; converts the file and swaps its extension.</li>
+            <li><b>Generate New File</b> &mdash; keeps the original and writes the converted file next to it.</li>
+            <li><b>Convert Selection / Document</b> &mdash; works on the selected text or on the whole editor content.</li>
+        </ul>
+        <p>Supports headings, bold, italic, strikethrough, inline code, code blocks, links, images, nested lists,
+        tables, quotes and horizontal rules, in both directions. Works offline, with no extra tools to install.</p>
+        <p>Files: Markdown <code>.md</code> / <code>.markdown</code>, Jira <code>.jira</code> / <code>.jiramarkup</code>.</p>
+        <p>Source code: <a href="https://github.com/rafaelwms/markdownup">github.com/rafaelwms/markdownup</a></p>
+    ]]></description>
+    <change-notes><![CDATA[
+        <ul><li>Initial release.</li></ul>
+    ]]></change-notes>
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <group id="MarkdownUp.Group" text="MarkdownUp" popup="true">
+            <action id="MarkdownUp.ConvertFile" class="dev.markdownup.ConvertFileAction" text="Convert File"/>
+            <action id="MarkdownUp.NewFile" class="dev.markdownup.NewFileAction" text="Generate New File"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="CutCopyPasteGroup"/>
+        </group>
+        <group id="MarkdownUp.EditorGroup" text="MarkdownUp" popup="true">
+            <action id="MarkdownUp.ConvertEditor" class="dev.markdownup.ConvertEditorAction" text="Convert Selection / Document"/>
+            <action id="MarkdownUp.NewEditorFile" class="dev.markdownup.NewEditorFileAction" text="Generate New File"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </group>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="MarkdownUp" displayType="BALLOON"/>
+    </extensions>
+</idea-plugin>

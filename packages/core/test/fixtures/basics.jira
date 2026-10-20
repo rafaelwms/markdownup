@@ -1,0 +1,24 @@
+h1. Title
+
+Some *bold*, _italic_, -gone- and {{code}} with a [link|https://x.io/a_b_c] and !img.png!.
+
+h2. Lists
+
+* one
+** nested
+**# deep
+* two
+
+# first
+# second
+
+bq. a quote
+
+----
+
+{code:ts}
+const a = *1*;
+{code}
+
+||A||B||
+|1|2|
