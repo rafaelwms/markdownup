@@ -15,9 +15,13 @@
         <p>Source code: <a href="https://github.com/rafaelwms/markdownup">github.com/rafaelwms/markdownup</a></p>
     ]]></description>
     <change-notes><![CDATA[
-        <ul><li>Initial release.</li></ul>
+        <ul>
+            <li>Context menu in Rider's Solution Explorer.</li>
+            <li>Converter now runs natively in the IDE; Node.js is no longer required.</li>
+        </ul>
     ]]></change-notes>
     <depends>com.intellij.modules.platform</depends>
+    <depends optional="true" config-file="markdownup-rider.xml">com.intellij.modules.rider</depends>
 
     <actions>
         <group id="MarkdownUp.Group" text="MarkdownUp" popup="true">

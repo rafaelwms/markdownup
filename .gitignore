@@ -3,5 +3,8 @@ dist/
 out/
 build/
 .gradle/
+.intellijPlatform/
+.kotlin/
 .idea/
 *.vsix
+.DS_Store

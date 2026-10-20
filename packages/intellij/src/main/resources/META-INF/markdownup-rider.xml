@@ -1,0 +1,8 @@
+<idea-plugin>
+    <!-- Rider's Solution Explorer has its own context menu group. -->
+    <actions>
+        <reference ref="MarkdownUp.Group">
+            <add-to-group group-id="SolutionExplorerPopupMenu" anchor="last"/>
+        </reference>
+    </actions>
+</idea-plugin>
